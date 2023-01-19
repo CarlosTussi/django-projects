@@ -25,6 +25,7 @@ Setting Up Virtual Environment
 Creating Django Project
 
 1) Install Django
+      *Install inside Virtual Environment
       ```
       pip3 install django
       ```
