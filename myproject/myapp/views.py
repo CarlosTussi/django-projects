@@ -17,6 +17,9 @@ def testing(request):
     user_agent = request.META['HTTP_USER_AGENT']
     path_info = request.path_info
 
+    response = HttpResponse()
+    response.headers['ExtraFieldHere'] = "Some content"
+
     msg = f"""<br>
         <br>Path: {path}
         <br>Address: {address}
@@ -24,6 +27,8 @@ def testing(request):
         <br>Method: {method}
         <br>User agent: {user_agent}
         <br>Path info: {path_info}
+        <br>
+        {response.headers}
         <br>
      """
 
