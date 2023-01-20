@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 # Create your views here.
 def home(request):
@@ -59,5 +59,10 @@ def requestcontent(request):
     return HttpResponse(msg, content_type = 'text/html', charset='utf-8')
 
 
-def testing(request):
+def error(request):
+    return HttpResponseNotFound("Error raised in myapp with HttpRequestNotFound")
+    
+
+
+def testing(request):    
     return HttpResponse("Connecting this function directly from urls.py from project level")

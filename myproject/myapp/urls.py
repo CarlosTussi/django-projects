@@ -7,6 +7,7 @@ urlpatterns = [
     path('pathparameters/<name>/<id>', views.pathparameters, name="pathparameters"),
     path('queryparameters/', views.queryparameters, name ="queryparameters"),
     path('bodyparameters/', views.bodyparameters, name="bodyparameters"),
-    path('showform', views.showform, name="showform"),
+    path('showform/', views.showform, name="showform"),
+    path('error/', views.error, name="error"),
     
 ]

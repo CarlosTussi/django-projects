@@ -23,3 +23,6 @@ urlpatterns = [
     path('myapp/', include('myapp.urls')), #This path uses the path defined in urls    
     path('testing/', views.testing), #This path maps straight to views.py without the urls.py from myapp    
 ]
+
+
+handler404 = 'myproject.views.handler404'
