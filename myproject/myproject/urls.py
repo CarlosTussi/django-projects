@@ -18,7 +18,8 @@ from django.urls import path, include
 from myapp import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myapp.urls')), #This path uses the path defined in urls
-    path('testing/', views.testing), #This path maps straight to views.py without the urls.py from myapp
+    path('admin/', admin.site.urls),    
+    path('', views.home),
+    path('myapp/', include('myapp.urls')), #This path uses the path defined in urls    
+    path('testing/', views.testing), #This path maps straight to views.py without the urls.py from myapp    
 ]

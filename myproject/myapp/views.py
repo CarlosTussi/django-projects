@@ -3,13 +3,37 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    content ="<html><body><main><h1>My H1 tag!!</h1></main></body></html>"
-    path = request.path + "extra!dasdasds"
+    content ="<html><body><main><h1>My H1 tag!!</h1></main></body></html>"    
 
-    return HttpResponse(path, content_type='text/html', charset='utf-8')
-    
+    return HttpResponse(content, content_type='text/html', charset='utf-8')
 
-def testing(request):
+def pathparameters(request, name, id):
+    arguments = ""
+
+    return HttpResponse("PathParameters => Name: {}, id: {}".format(name,id))
+
+
+def queryparameters(request):
+    name = request.GET['name']
+    id = request.GET['id']
+
+    return HttpResponse("QueryParameters => Name: {}, id:{}".format(name, id))
+
+# Reading content from the form
+def bodyparameters(request):
+    if request.method == "POST":
+        id=request.POST['id']
+        name = request.POST['name']
+
+    return HttpResponse("Name: {}, id:{}".format(name, id))
+
+# NOT WORKING BECAUSE TEMPLATE NEEDS TO BE CONFIGURED FIRST
+def showform(request):
+ 
+
+    return render(request, 'template/form.html')
+
+def requestcontent(request):
     path = request.path
     scheme = request.scheme
     method = request.method
@@ -33,3 +57,7 @@ def testing(request):
      """
 
     return HttpResponse(msg, content_type = 'text/html', charset='utf-8')
+
+
+def testing(request):
+    return HttpResponse("Connecting this function directly from urls.py from project level")
