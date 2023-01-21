@@ -10,5 +10,8 @@ urlpatterns = [
     path('showform/', views.showform, name="showform"),
     path('error/', views.error, name="error"),
     path('form_view/', views.form_view, name="form_view"),
+    path('form_model_view/', views. form_model_view, name=" form_model_view"),
+
+   
     
 ]

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 
-from .forms import InputForm
+from .forms import InputForm, LoggerForm
 # Create your views here.
 def home(request):
     content ="<html><body><main><h1>My H1 tag!!</h1></main></body></html>"    
@@ -13,6 +13,15 @@ def form_view(request):
     context = {"form": form}
     return render(request, "home.html", context)
 
+def form_model_view(request):
+    form = LoggerForm()
+    # THIS IS THE DIFFERENCE WITH ModelForm, saving directly into the database after validated
+    if request.method == 'POST':
+        form = LoggerForm(request.POST)
+        if form.is_valid():
+            form.save() #This will save in the database straight way
+    context = {"form" : form}
+    return render(request, "home.html", context)
 
 def pathparameters(request, name, id):
     arguments = ""
