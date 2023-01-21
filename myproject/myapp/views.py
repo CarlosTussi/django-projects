@@ -15,7 +15,7 @@ def form_view(request):
 
 def form_model_view(request):
     form = LoggerForm()
-    # THIS IS THE DIFFERENCE WITH ModelForm, saving directly into the database after validated
+    # THIS IS THE DIFFERENCE WITH ModelForm, saving directly into the database after validated  
     if request.method == 'POST':
         form = LoggerForm(request.POST)
         if form.is_valid():

@@ -1,0 +1,10 @@
+<!-- DTL Language Example -->
+{% if menu %}
+
+{% for  item in menu %}
+{{item.name}} : {{item.price}}
+<br>
+{% endfor %}
+{% else %}
+<p>No Items to display</p>
+{% endif %}
