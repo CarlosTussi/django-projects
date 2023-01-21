@@ -9,5 +9,6 @@ urlpatterns = [
     path('bodyparameters/', views.bodyparameters, name="bodyparameters"),
     path('showform/', views.showform, name="showform"),
     path('error/', views.error, name="error"),
+    path('form_view/', views.form_view, name="form_view"),
     
 ]

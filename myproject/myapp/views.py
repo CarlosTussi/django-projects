@@ -1,11 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 
+from .forms import InputForm
 # Create your views here.
 def home(request):
     content ="<html><body><main><h1>My H1 tag!!</h1></main></body></html>"    
 
     return HttpResponse(content, content_type='text/html', charset='utf-8')
+
+def form_view(request):
+    form = InputForm()
+    context = {"form": form}
+    return render(request, "home.html", context)
+
 
 def pathparameters(request, name, id):
     arguments = ""
